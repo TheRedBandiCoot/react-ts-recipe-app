@@ -24,13 +24,10 @@ export function Modal() {
           <header className="modal-content--header">
             <div className="main-header">
               <h1
-                className={`transition-colors duration-700 ease-in-out text-red-400 text-3xl ${
-                  change && 'text-green-400'
-                }`}
-              >
+              onClick={()=> setChange(!change)} 
+              className={`transition ease-in-out duration-700 font-bold cursor-pointer text-3xl ${change ? "text-green-500" : "text-red-500"}`}>
                 Chicken Recipe
               </h1>
-              <button onClick={() => setChange(!change)}>change</button>
             </div>
             <div className="close-btn-layout">
               <button type="button" className="close-btn" onClick={closeBtn}>
@@ -48,3 +45,5 @@ export function ModalBtn() {
   const { setValue } = useAppContext();
   return <button onClick={() => setValue(true)}>Modal</button>;
 }
+
+
