@@ -2,7 +2,6 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import SearchBar from '../components/SearchBar';
 
 const MODEL_NAME = 'gemini-pro';
-const API_KEY = 'AIzaSyBEzU_pcvhITF2ci8b3TlOl40_S3WeLzfY';
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 const prompt = 'Write a story about a magic backpack.';
