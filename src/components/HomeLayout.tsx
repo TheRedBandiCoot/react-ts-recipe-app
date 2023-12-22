@@ -1,8 +1,11 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { IoFastFood } from 'react-icons/io5';
 import SearchBar from './SearchBar';
+import { useState } from 'react';
 
 function HomeLayout() {
+  const [search, setSearch] = useState('');
+
   return (
     <>
       <header className="home-layout--header">
@@ -11,9 +14,9 @@ function HomeLayout() {
             <IoFastFood />
           </i>
         </NavLink>
-        <SearchBar marginRight="3.5rem" />
+        <SearchBar marginRight="3.5rem" setSearch={setSearch} />
       </header>
-      <Outlet />
+      <Outlet context={{ search }} />
     </>
   );
 }

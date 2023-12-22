@@ -1,130 +1,32 @@
 @use './variables' as var;
 @import './home-layout';
 @import './home';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*,
-input,
-button {
+* {
   background-color: var.$value;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: none;
+}
+
+div#root,
+body {
+  background-color: transparent;
+}
+
+input {
+  // border: none;
   outline: none;
 }
 
-.modal-layout {
-  width: 100vw;
-  height: 100dvh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  backdrop-filter: blur(5px);
-}
-.modal-content {
-  width: 40rem;
-  height: 20rem;
-  background-color: rgb(199, 199, 199);
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  opacity: 0;
-  overflow: hidden;
-}
-.modal-content {
-  animation: mountAnimation 0.2s ease-in-out forwards;
-}
-
-.modal-content.unmounted {
-  animation: unmountAnimation 0.2s ease-in-out forwards;
-}
-
-.modal-content--header {
-  width: 100%;
-  background-color: transparent;
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  // align-items: center;
-}
-.modal-content--header .main-header {
-  background-color: transparent;
-  width: 90%;
-  padding-left: 1.5rem;
-  display: flex;
-  align-items: center;
-  border: 6px solid;
-  border-image: linear-gradient(to right, rgb(134, 134, 134), rgba(0, 0, 0, 0)) 0% 0% 100% 30%;
-}
-
-.modal-content--header .main-header h1 {
-  background-color: transparent;
-}
-.modal-content--header .close-btn-layout {
-  background-color: transparent;
-  width: 10%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding-right: 0.5rem;
-}
-
-.modal-content--header .close-btn-layout .close-btn {
-  width: 2.3rem;
-  background-color: rgb(199, 199, 199);
-  height: 2.3rem;
-  padding: 0.5rem;
-  cursor: pointer;
-  font-size: 1.3rem;
-  border-radius: 50%;
-  margin-top: 0.5rem;
-  transition: all 0.2s;
-  & > * {
-    background-color: transparent;
-    color: red;
-  }
-}
-
-.modal-content--header .close-btn-layout .close-btn:hover {
-  background-color: rgba(183, 183, 183, 0.596);
-}
+//   border-radius: 10px;
 
 @keyframes icon-ani {
   to {
     color: rgb(255, 255, 255);
-  }
-}
-
-@keyframes mountAnimation {
-  from {
-    width: 40rem;
-    height: 20rem;
-    opacity: 0;
-  }
-  to {
-    width: 50rem;
-    height: 30rem;
-    opacity: 1;
-  }
-}
-
-@keyframes unmountAnimation {
-  from {
-    width: 50rem;
-    height: 30rem;
-    opacity: 1;
-  }
-  to {
-    width: 40rem;
-    height: 20rem;
-    opacity: 0;
   }
 }

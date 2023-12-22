@@ -1,20 +1,33 @@
 //@ Home
 
 .main-container {
-  width: min(100% - 10rem, 70rem);
-  height: 500px;
-  border: 2px solid rgba(255, 0, 0, 0.3);
+  width: min(100% - 5rem, 70rem);
+  height: auto;
+  // border: 2px solid rgba(255, 0, 0, 0.3);
   margin: 1rem auto 0;
 }
 
+.main-container section {
+  margin-top: 2rem;
+  // display: flex;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 1.5rem;
+}
+
 .container--food {
-  --height: 350px;
-  width: 300px;
+  --height: 300px;
+  --width: 250px;
+  width: var(--width);
   margin-right: 2rem;
   height: var(--height);
   background-color: rgb(202, 202, 202);
   border-radius: 10px;
   position: relative;
+  // overflow: auto;
+  // resize: horizontal;
 }
 
 //@ Branding
@@ -29,12 +42,13 @@
   border-radius: 10px;
   background-color: #fff;
   margin-top: 0.5rem;
-  background-color: red;
+  // background-color: red;
   overflow: hidden;
 }
 
 .container--food .branding img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   position: relative;
   scale: 1;
@@ -44,37 +58,12 @@
   scale: 1.05;
 }
 
-.container--food .branding::before {
-  --value: 100%;
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background: linear-gradient(to bottom, transparent, rgba(7, 231, 220, 0.607) var(--value)),
-    linear-gradient(to left, transparent, rgba(7, 231, 220, 0.607) var(--value));
-  z-index: 1;
-  opacity: 0.6;
-  rotate: 0deg;
-  transition: all 0.5s ease-in-out;
-}
-
-.container--food .branding:hover::before {
-  opacity: 0.4;
-  scale: 1.05;
+.container--food .branding .img-layout {
+  // background: linear-gradient(to bottom, transparent, rgba(7, 231, 220, 0.607)),
+  //   linear-gradient(to left, transparent, rgba(173, 202, 25, 0.607));
+  // transition: all 0.5s ease-in-out;
 }
 
 //@ Info
-.container--food .info {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.container--food .info button {
-  background-color: red;
-  padding: 10px 20px;
-}
+// .container--food .info {
+// }

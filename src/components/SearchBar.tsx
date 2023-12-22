@@ -2,13 +2,19 @@ import { FormEvent, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 interface SearchBarType {
   marginRight: string;
+  setSearch?: (value: string) => void;
 }
 
-const SearchBar = ({ marginRight }: SearchBarType) => {
+const SearchBar = ({ marginRight, setSearch }: SearchBarType) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    inputRef.current?.value;
+    if (typeof inputRef.current?.value === 'string' && setSearch) {
+      setSearch(inputRef.current.value);
+      inputRef.current.value = '';
+    }
   }
 
   function handleSearchClick() {
