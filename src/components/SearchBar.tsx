@@ -1,9 +1,6 @@
 import { FormEvent, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
-interface SearchBarType {
-  marginRight: string;
-  setSearch?: (value: string) => void;
-}
+import type { SearchBarType } from '../utils/Types';
 
 const SearchBar = ({ marginRight, setSearch }: SearchBarType) => {
   const inputRef = useRef<HTMLInputElement>(null);

@@ -1,9 +1,9 @@
-import { Users } from './Home';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import type { RecipesType } from '../utils/Types';
 
 const RecipePage = () => {
-  const [recipe, setRecipe] = useState<Users | null>(null);
+  const [recipe, setRecipe] = useState<RecipesType | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { id } = useParams();
 

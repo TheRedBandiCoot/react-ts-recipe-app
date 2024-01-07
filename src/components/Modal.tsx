@@ -1,13 +1,7 @@
 import { IoClose } from 'react-icons/io5';
 import { useAppContext } from './AppProvider';
 import { FormEvent, useEffect, useState } from 'react';
-import { Recipe } from '../pages/Home';
-
-export type ModalIdType = {
-  id?: string | number;
-};
-
-type Modal = ModalIdType & { modalId?: ModalIdType['id'] } & Recipe;
+import type { Modal, ModalIdType } from '../utils/Types';
 
 export function Modal({ id, modalId, ...recipe }: Modal) {
   const { unmounted, setValue, setUnmounted } = useAppContext();
