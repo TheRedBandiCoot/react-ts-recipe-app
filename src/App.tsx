@@ -3,6 +3,9 @@ import Home from './pages/Home';
 import HomeLayout from './components/HomeLayout';
 import { Search } from './pages/Search';
 import RecipePage from './pages/RecipePage';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
   const router = createBrowserRouter(
@@ -15,7 +18,11 @@ function App() {
     )
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

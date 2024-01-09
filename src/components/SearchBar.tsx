@@ -1,9 +1,11 @@
 import { FormEvent, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import type { SearchBarType } from '../utils/Types';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = ({ marginRight, setSearch }: SearchBarType) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -12,6 +14,7 @@ const SearchBar = ({ marginRight, setSearch }: SearchBarType) => {
       setSearch(inputRef.current.value);
       inputRef.current.value = '';
     }
+    navigate('/');
   }
 
   function handleSearchClick() {
